@@ -14,6 +14,12 @@ impl ElfIdent {
     pub fn get_magic(&self) -> [u8;16] {
         self.bytes
     }
+    pub fn get_class(&self)-> u8 {
+        self.bytes[EI_CLASS]
+    }
+    pub fn get_endian(&self)-> u8 {
+        self.bytes[EI_DATA]
+    }
     pub fn get_class_name(&self) -> &'static str {
         match self.bytes[EI_CLASS]{
             ELFCLASSNONE => "none",
